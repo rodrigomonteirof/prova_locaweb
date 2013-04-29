@@ -1,0 +1,35 @@
+CREATE `cliente` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(300) NOT NULL,
+  `email` varchar(300) NOT NULL,
+  `cpfcpnj` varchar(50) NOT NULL,
+  `datacadastro` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
+
+CREATE TABLE IF NOT EXISTS `notafiscal` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_cliente` int(11) NOT NULL,
+  `data_emissao` date NOT NULL,
+  `valor` double NOT NULL,
+  `imposto` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
+
+CREATE TABLE IF NOT EXISTS `produto` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(300) NOT NULL,
+  `valor` double NOT NULL,
+  `imposto` double NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;
+
+CREATE TABLE IF NOT EXISTS `pedido` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id_produto` int(11) NOT NULL,
+  `id_cliente` int(11) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `valor` double NOT NULL,
+  `id_notafiscal` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 ;

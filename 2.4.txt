@@ -1,0 +1,1 @@
+SELECT * FROM notafiscal WHERE id_cliente=1;
